@@ -1,0 +1,13 @@
+
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Search List">
+            <app-search-list class="book-list" [search]="search$ | async" (add)="onAdd($event)"></app-search-list>
+    </mat-tab>
+    <mat-tab label="History List">
+            <app-history-collection [collection]="historyCollection$ | async" (remove)="onRemove($event)"></app-history-collection> 
+    </mat-tab>
+    <mat-tab label="Favourite Search List">
+            <app-favourite-list  [favourites]="favCollection$ | async" (remove)="onRemove($event)"></app-favourite-list> 
+    </mat-tab>
+</mat-tab-group>   
+<router-outlet></router-outlet>

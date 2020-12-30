@@ -1,0 +1,27 @@
+<section>
+    <mat-accordion>
+        <mat-expansion-panel hideToggle *ngFor="let searchHistory of collection">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Search history for the time {{searchHistory[0].time}}
+            </mat-panel-title>
+            <mat-panel-description>
+             Click to view/hide
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="row">
+              <button mat-raised-button color="warn" (click)="remove.emit(searchHistory[0].objectId)">Delete this search</button>
+              <div class="col-md-4" *ngFor="let itemWrap of searchHistory[0].items" style="width: 20%;">
+                  <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image">
+                        <img mat-card-avatar  src="{{itemWrap.avatar_url}}"> 
+                      </div>
+                      <mat-card-title>{{itemWrap.login}}</mat-card-title>
+                    </mat-card-header>
+                  </mat-card>
+               </div>
+          </div>   
+        </mat-expansion-panel>
+      </mat-accordion>
+</section>

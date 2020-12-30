@@ -1,0 +1,37 @@
+
+<section>
+    <div class="row" style="width: 100%">
+      <div class="col-md-6" style="text-align: right;">
+          <div class="example-container"> 
+              <input matInput type="text" placeholder="Search Github Developers"  [(ngModel)]="searchText" name="search" style="background: #e2e2e2;width: 400px;height: 40px;" >
+            </div>    
+      </div>
+      <div class="col-md-4" style="text-align: left;">
+          <div class="example-container">
+              <button mat-raised-button color="primary" type="submit" (click)="searchUsers()">Search Developers</button>               
+          </div> 
+      </div>
+      <div class="col-md-2" style="text-align: left;">
+          <div class="example-container"> 
+          </div> 
+      </div>
+    </div>
+   
+ <div *ngFor="let book of search">
+    <button mat-raised-button color="accent" (click)="addToFav(book)"
+            data-test="add-button">Mark as Favourite</button>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of book.items" style="width: 20%;">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+               <img mat-card-avatar  src="{{item.avatar_url}}"> 
+            </div>
+            <mat-card-title>{{item.login}}</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+
+ </div>
+</section>
